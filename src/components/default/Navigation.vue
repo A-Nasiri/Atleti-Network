@@ -8,7 +8,6 @@
           <img class="lg" :src="require('@/assets/logo.png')" />
           <img class="net" :src="require('@/assets/net.png')" />
         </div>
-        <!-- <img class="lg" :src="require('@/assets/logo.png')" /> -->
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
