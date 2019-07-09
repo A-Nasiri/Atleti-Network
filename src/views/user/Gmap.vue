@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+
 export default {
   name: "Gmap",
   data() {
