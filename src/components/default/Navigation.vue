@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar app height="90px">
+    <v-toolbar class="tlbr" app height="90px">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>
         <div class="logo">
@@ -11,6 +11,9 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
+        <v-btn flat>
+          <span>News</span>
+        </v-btn>
         <v-btn flat>
           <v-icon left color="indigo">mdi-account-plus</v-icon>
           <span>Signup</span>
@@ -51,7 +54,12 @@ export default {
 };
 </script>
 
+
 <style>
+.tlbr {
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
 .lg {
   width: 50px;
   margin: 0 0.3rem;
@@ -66,6 +74,6 @@ export default {
 }
 
 .drawer {
-  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 </style>

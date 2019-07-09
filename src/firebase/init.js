@@ -7,7 +7,7 @@ var firebaseConfig = {
   authDomain: "atleti-network.firebaseapp.com",
   databaseURL: "https://atleti-network.firebaseio.com",
   projectId: "atleti-network",
-  storageBucket: "",
+  storageBucket: "gs://atleti-network.appspot.com/",
   messagingSenderId: "612049518295",
   appId: "1:612049518295:web:f2d149e9316e5967"
 };

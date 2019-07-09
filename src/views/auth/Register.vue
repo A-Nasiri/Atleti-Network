@@ -8,6 +8,10 @@
     <v-card-text>
       <v-form class="px-3">
         <v-layout row>
+          <v-icon left color="white">mdi-account-circle</v-icon>
+          <v-text-field type="text" label="Username" v-model="username"></v-text-field>
+        </v-layout>
+        <v-layout row>
           <v-icon left color="white">mdi-at</v-icon>
           <v-text-field type="email" label="E-mail" v-model="email"></v-text-field>
         </v-layout>
@@ -24,13 +28,9 @@
             v-model="confirmPassword"
           ></v-text-field>
         </v-layout>
-        <v-layout row>
-          <v-icon left color="white">mdi-account-circle</v-icon>
-          <v-text-field label="Username" v-model="username"></v-text-field>
-        </v-layout>
       </v-form>
-      <div v-if="feedback" block class="pa-3 deep-orange darken-1 text-xs-center">
-        <span class="white--text title">{{ feedback }}</span>
+      <div v-if="feedback" block class="red darken-2 text-xs-center pa-1">
+        <span class="white--text subheading">{{ feedback }}</span>
       </div>
     </v-card-text>
     <v-card-actions>
