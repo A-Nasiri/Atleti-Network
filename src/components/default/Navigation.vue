@@ -14,13 +14,17 @@
         <v-btn flat>
           <span>News</span>
         </v-btn>
-        <v-btn flat>
+        <v-btn flat router :to="{ name: 'Register' }">
           <v-icon left color="indigo">mdi-account-plus</v-icon>
           <span>Signup</span>
         </v-btn>
         <v-btn flat>
           <v-icon left color="indigo">mdi-login</v-icon>
           <span>Login</span>
+        </v-btn>
+        <v-btn flat @click="logOut">
+          <v-icon left color="indigo">mdi-logout</v-icon>
+          <span>Logout</span>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -44,12 +48,24 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+
 export default {
   name: "Navigation",
   data() {
     return {
       drawer: false
     };
+  },
+  methods: {
+    logOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "Register" });
+        });
+    }
   }
 };
 </script>

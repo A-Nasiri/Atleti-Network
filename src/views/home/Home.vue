@@ -74,12 +74,17 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+
 export default {
   name: "Home",
   data() {
     return {
       //
-    }
+    };
+  },
+  mounted() {
+    console.log(firebase.auth().currentUser);
   }
 };
 </script>
