@@ -2,7 +2,7 @@
   <nav>
     <v-toolbar class="tlbr" app height="90px">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>
+      <v-toolbar-title router :to="{ name: 'Home' }">
         <div class="logo">
           <img class="atl" :src="require('@/assets/atleti.png')" />
           <img class="lg" :src="require('@/assets/logo.png')" />
@@ -18,7 +18,7 @@
           <v-icon left color="indigo">mdi-account-plus</v-icon>
           <span>Signup</span>
         </v-btn>
-        <v-btn flat>
+        <v-btn flat router :to="{ name: 'Login' }">
           <v-icon left color="indigo">mdi-login</v-icon>
           <span>Login</span>
         </v-btn>
@@ -63,7 +63,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push({ name: "Register" });
+          this.$router.push({ name: "Login" });
         });
     }
   }

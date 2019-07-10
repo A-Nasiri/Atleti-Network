@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "@/views/home/Home";
 import Gmap from "@/views/user/Gmap";
 import SignUp from "@/views/auth/SignUp";
+import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 import SetProfile from "@/views/auth/SetProfile";
 
@@ -21,6 +22,11 @@ export default new Router({
       path: "/map",
       name: "Gmap",
       component: Gmap
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: Login
     },
     {
       path: "/signup",
