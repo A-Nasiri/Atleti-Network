@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+
 export default {
   name: "Login",
   data() {
@@ -45,7 +47,22 @@ export default {
     };
   },
   methods: {
-    logIn() {}
+    logIn() {
+      if (this.email && this.password) {
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(cred => {
+            this.$router.push({ name: "Gmap" });
+          })
+          .catch(err => {
+            this.feedback = err.message;
+          });
+        this.feedback = null;
+      } else {
+        this.feedback = "Please provide your Email & Password";
+      }
+    }
   }
 };
 </script>

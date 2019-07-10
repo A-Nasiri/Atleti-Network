@@ -2,13 +2,15 @@
   <nav>
     <v-toolbar class="tlbr" app height="90px">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title router :to="{ name: 'Home' }">
-        <div class="logo">
-          <img class="atl" :src="require('@/assets/atleti.png')" />
-          <img class="lg" :src="require('@/assets/logo.png')" />
-          <img class="net" :src="require('@/assets/net.png')" />
-        </div>
-      </v-toolbar-title>
+      <router-link :to="{ name: 'Home' }">
+        <v-toolbar-title>
+          <div class="logo">
+            <img class="atl" :src="require('@/assets/atleti.png')" />
+            <img class="lg" :src="require('@/assets/logo.png')" />
+            <img class="net" :src="require('@/assets/net.png')" />
+          </div>
+        </v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn flat>

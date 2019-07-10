@@ -32,7 +32,7 @@
         UPLOAD IMAGE
         <v-icon right dark>cloud_upload</v-icon>
       </v-btn>
-      <v-btn block color="teal darken-1" large>
+      <v-btn block color="teal darken-1" large @click="skip">
         SKIP FOR NOW
         <v-icon right dark>mdi-exit-to-app</v-icon>
       </v-btn>
@@ -104,6 +104,10 @@ export default {
             });
         });
       });
+    },
+
+    skip() {
+      this.$router.push({ name: "Gmap" });
     }
   }
 };
