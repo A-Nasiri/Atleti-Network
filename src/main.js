@@ -3,7 +3,9 @@ import "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
 import firebase from "firebase/app";
+import FooterD from "@/components/default/FooterD";
 
+Vue.component("main-footer", FooterD);
 Vue.config.productionTip = false;
 
 let app = null;

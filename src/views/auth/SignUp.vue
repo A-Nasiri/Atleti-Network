@@ -1,15 +1,18 @@
 <template>
-  <v-parallax class="sign-up" :src="require('@/assets/reg.jpg')">
-    <v-container fill-height>
-      <v-layout row wrap align-center>
-        <v-flex xs12 sm8 offset-sm2 align-center justify-center>
-          <transition name="slide" mode="out-in">
-            <router-view></router-view>
-          </transition>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-parallax>
+  <div>
+    <v-parallax class="sign-up" :src="require('@/assets/reg.jpg')">
+      <v-container fill-height>
+        <v-layout row wrap align-center>
+          <v-flex xs12 sm8 offset-sm2 align-center justify-center>
+            <transition name="slide" mode="out-in">
+              <router-view></router-view>
+            </transition>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-parallax>
+    <main-footer></main-footer>
+  </div>
 </template>
 
 <script>
