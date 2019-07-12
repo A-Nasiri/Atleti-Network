@@ -6,6 +6,7 @@
 
 <script>
 import firebase from "firebase/app";
+import db from "@/firebase/init";
 
 export default {
   name: "Gmap",
@@ -16,7 +17,44 @@ export default {
     };
   },
   mounted() {
-    this.renderMap();
+    let user = firebase.auth().currentUser;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          this.lat = pos.coords.latitude;
+          this.lng = pos.coords.longitude;
+
+          db.collection("users")
+            .where("user_id", "==", user.uid)
+            .get()
+            .then(snapshot => {
+              snapshot.forEach(doc => {
+                db.collection("users")
+                  .doc(doc.id)
+                  .update({
+                    geolocation: {
+                      lat: pos.coords.latitude,
+                      lng: pos.coords.longitude
+                    }
+                  });
+              });
+            })
+            .then(() => {
+              this.renderMap();
+            });
+
+          this.renderMap();
+        },
+        err => {
+          consle.log(err);
+          this.renderMap();
+        },
+        { maximumAge: 60000, timeout: 5000 }
+      );
+    } else {
+      this.renderMap();
+    }
   },
   methods: {
     renderMap() {

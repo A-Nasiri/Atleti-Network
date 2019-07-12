@@ -4,7 +4,7 @@
       <v-container fill-height>
         <v-layout row wrap align-center>
           <v-flex xs12 sm8 offset-sm2 align-center justify-center>
-            <v-card color="blue-grey darken-2" dark class="elevation-12">
+            <v-card color="transparent" dark class="elevation-12">
               <v-toolbar color="teal darken-1">
                 <v-spacer></v-spacer>
                 <v-toolbar-title>LOG IN</v-toolbar-title>
