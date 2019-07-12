@@ -86,9 +86,7 @@ export default {
       //
     };
   },
-  mounted() {
-    console.log(firebase.auth().currentUser);
-  }
+  mounted() {}
 };
 </script>
 
