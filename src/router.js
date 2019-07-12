@@ -6,10 +6,11 @@ import SignUp from "@/views/auth/SignUp";
 import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 import SetProfile from "@/views/auth/SetProfile";
+import firebase from "firebase/app";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -21,7 +22,10 @@ export default new Router({
     {
       path: "/map",
       name: "Gmap",
-      component: Gmap
+      component: Gmap,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/login",
@@ -38,5 +42,21 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(rec => rec.meta.requiresAuth)) {
+    let user = firebase.auth().currentUser
+
+    if(user) {
+      next()
+    } else {
+      next({ name: 'Login' })
+    }
+  } else {
+    next()
+  }
+})
+
+export default router
 
 // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
