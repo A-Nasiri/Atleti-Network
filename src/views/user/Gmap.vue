@@ -1,6 +1,23 @@
 <template>
-  <div class="map">
-    <div class="google-map" id="map">map</div>
+  <div>
+    <div class="map">
+      <div class="google-map" id="map">map</div>
+    </div>
+    <v-dialog v-model="dialog" max-width="290">
+      <v-card>
+        <v-card-title class="headline">Use Google's location service?</v-card-title>
+
+        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn color="green darken-1" flat="flat" @click="dialog = false">Disagree</v-btn>
+
+          <v-btn color="green darken-1" flat="flat" @click="dialog = false">Agree</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -13,7 +30,9 @@ export default {
   data() {
     return {
       lat: 53,
-      lng: -2
+      lng: -2,
+      marker: require("@/assets/marker.png"),
+      dialog: false
     };
   },
   mounted() {
@@ -65,6 +84,28 @@ export default {
         minZoom: 3,
         streetViewControl: false
       });
+      db.collection("users")
+        .get()
+        .then(users => {
+          users.docs.forEach(doc => {
+            let data = doc.data();
+            if (data.geolocation) {
+              let marker = new google.maps.Marker({
+                position: {
+                  lat: data.geolocation.lat,
+                  lng: data.geolocation.lng
+                },
+                map,
+                icon: this.marker
+              });
+
+              // add click event to marker
+              marker.addListener("click", () => {
+                this.dialog = true;
+              });
+            }
+          });
+        });
     }
   }
 };

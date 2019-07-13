@@ -47,12 +47,13 @@
         >
           <v-flex class="mt-5">
             <v-avatar size="100">
-              <img :src="userProfile.image_url" />
+              <v-img :src="userProfile.image_url"></v-img>
             </v-avatar>
             <p class="white--text subheading mt-1">{{ userProfile.username }}</p>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>
+
         <v-list-tile @click="goHome">
           <v-list-tile-action>
             <v-icon>mdi-home</v-icon>
