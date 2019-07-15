@@ -3,18 +3,19 @@
     <div class="map">
       <div class="google-map" id="map">map</div>
     </div>
-    <v-dialog v-model="dialog" max-width="290">
-      <v-card>
-        <v-card-title class="headline">Use Google's location service?</v-card-title>
-
-        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
-
+    <v-dialog v-model="dialog" max-width="350">
+      <v-card class="pa-3">
+        <v-btn color="teal darken-1" fab small dark absolute right @click="dialog = false">
+          <v-icon>close</v-icon>
+        </v-btn>
+        <v-layout justify-center align-center column>
+          <v-avatar size="70" color="grey lighten-4">
+            <img src="https://vuetifyjs.com/apple-touch-icon-180x180.png" alt="avatar" />
+          </v-avatar>
+          <v-card-title class="headline">User</v-card-title>
+        </v-layout>
         <v-card-actions>
-          <v-spacer></v-spacer>
-
-          <v-btn color="green darken-1" flat="flat" @click="dialog = false">Disagree</v-btn>
-
-          <v-btn color="green darken-1" flat="flat" @click="dialog = false">Agree</v-btn>
+          <v-btn color="teal darken-1" block dark @click="dialog = false">Visit Profile</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -119,5 +120,11 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 </style>

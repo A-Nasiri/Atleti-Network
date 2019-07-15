@@ -36,7 +36,7 @@
       </v-toolbar-items>
     </v-toolbar>
 
-    <v-navigation-drawer v-model="drawer" app dark class="teal">
+    <v-navigation-drawer v-model="drawer" app dark class="indigo">
       <v-list>
         <v-layout
           v-if="user"
@@ -49,7 +49,7 @@
             <v-avatar size="100">
               <v-img :src="userProfile.image_url"></v-img>
             </v-avatar>
-            <p class="white--text subheading mt-1">{{ userProfile.username }}</p>
+            <p class="white--text title mt-3">{{ userProfile.username }}</p>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>
