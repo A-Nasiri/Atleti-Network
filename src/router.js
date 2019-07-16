@@ -6,6 +6,7 @@ import SignUp from "@/views/auth/SignUp";
 import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 import SetProfile from "@/views/auth/SetProfile";
+import UserProfile from '@/views/user/UserProfile'
 import firebase from "firebase/app";
 
 Vue.use(Router);
@@ -39,6 +40,14 @@ const router = new Router({
         { path: "", name: "Register", component: Register },
         { path: "set-profile", name: "SetProfile", component: SetProfile }
       ]
+    },
+    {
+      path: "/profile/:id",
+      name: "UserProfile",
+      component: UserProfile,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 });

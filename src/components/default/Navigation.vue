@@ -15,7 +15,11 @@
       <v-toolbar-items>
         <v-btn flat v-if="user">
           <v-icon left color="indigo">mdi-emoticon-happy-outline</v-icon>
-          <span>Hey, {{ userProfile.username }}</span>
+          <span class="font-italic">Hey, {{ userProfile.username }}</span>
+        </v-btn>
+        <v-btn v-if="user" flat class="hidden-xs-only" router :to="{ name: 'Gmap' }">
+          <v-icon left color="indigo">mdi-earth</v-icon>
+          <span>ATLETI-MAP</span>
         </v-btn>
         <v-btn flat class="hidden-xs-only">
           <v-icon left color="indigo">mdi-newspaper</v-icon>

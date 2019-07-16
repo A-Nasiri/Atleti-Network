@@ -15,7 +15,7 @@
           <v-card-title v-model="user" class="headline">{{ user }}</v-card-title>
         </v-layout>
         <v-card-actions>
-          <v-btn color="teal darken-1" block dark @click="dialog = false">Visit Profile</v-btn>
+          <v-btn color="teal darken-1" block dark @click="visitProfile">Visit Profile</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -25,6 +25,7 @@
 <script>
 import firebase from "firebase/app";
 import db from "@/firebase/init";
+import slugify from "slugify";
 
 export default {
   name: "Gmap",
@@ -106,12 +107,21 @@ export default {
               // add click event to marker
               marker.addListener("click", () => {
                 this.dialog = true;
-                this.user = data.username;
                 this.userImg = data.image_url;
+                this.user = data.username;
               });
             }
           });
         });
+    },
+    visitProfile(e) {
+      let par = e.path[3].children[1].children[1].innerText;
+      let slug = slugify(par, {
+        replacement: "-",
+        remove: /[$*_+.()'"!\-:@]/g,
+        lower: true
+      });
+      this.$router.push({ name: "UserProfile", params: { id: slug } });
     }
   }
 };
