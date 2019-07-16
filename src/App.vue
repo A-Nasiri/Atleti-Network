@@ -2,7 +2,9 @@
   <v-app class="black">
     <Navigation />
     <v-content>
-      <router-view></router-view>
+      <vue-page-transition name="overlay-up-down">
+        <router-view></router-view>
+      </vue-page-transition>
     </v-content>
   </v-app>
 </template>

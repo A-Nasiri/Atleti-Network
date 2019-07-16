@@ -4,8 +4,10 @@ import App from "./App.vue";
 import router from "./router";
 import firebase from "firebase/app";
 import FooterD from "@/components/default/FooterD";
+import VuePageTransition from "vue-page-transition";
 
 Vue.component("main-footer", FooterD);
+Vue.use(VuePageTransition);
 Vue.config.productionTip = false;
 
 let app = null;

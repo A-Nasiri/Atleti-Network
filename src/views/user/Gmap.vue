@@ -9,10 +9,10 @@
           <v-icon>close</v-icon>
         </v-btn>
         <v-layout justify-center align-center column>
-          <v-avatar size="70" color="grey lighten-4">
-            <img src="https://vuetifyjs.com/apple-touch-icon-180x180.png" alt="avatar" />
+          <v-avatar size="80" color="grey lighten-4">
+            <v-img v-model="userImg" :src="userImg"></v-img>
           </v-avatar>
-          <v-card-title class="headline">User</v-card-title>
+          <v-card-title v-model="user" class="headline">{{ user }}</v-card-title>
         </v-layout>
         <v-card-actions>
           <v-btn color="teal darken-1" block dark @click="dialog = false">Visit Profile</v-btn>
@@ -33,7 +33,9 @@ export default {
       lat: 53,
       lng: -2,
       marker: require("@/assets/marker.png"),
-      dialog: false
+      dialog: false,
+      user: null,
+      userImg: null
     };
   },
   mounted() {
@@ -90,6 +92,7 @@ export default {
         .then(users => {
           users.docs.forEach(doc => {
             let data = doc.data();
+
             if (data.geolocation) {
               let marker = new google.maps.Marker({
                 position: {
@@ -103,6 +106,8 @@ export default {
               // add click event to marker
               marker.addListener("click", () => {
                 this.dialog = true;
+                this.user = data.username;
+                this.userImg = data.image_url;
               });
             }
           });
