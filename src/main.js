@@ -8,6 +8,17 @@ import VuePageTransition from "vue-page-transition";
 
 Vue.component("main-footer", FooterD);
 Vue.use(VuePageTransition);
+
+Vue.filter("snippet", val => {
+  if (!val || typeof val != "string") return "";
+  if (val.length > 60) {
+    val = val.slice(0, 60);
+    return val + "...";
+  } else {
+    return val;
+  }
+});
+
 Vue.config.productionTip = false;
 
 let app = null;

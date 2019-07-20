@@ -1,5 +1,5 @@
 <template>
-  <v-card color="transparent" dark class="elevation-12">
+  <v-card style="background: rgba(0, 0, 0, 0.5)" dark class="elevation-12">
     <v-toolbar color="teal darken-1">
       <v-spacer></v-spacer>
       <v-toolbar-title>REGISTER</v-toolbar-title>

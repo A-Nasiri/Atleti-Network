@@ -7,6 +7,7 @@ import Login from "@/views/auth/Login";
 import Register from "@/views/auth/Register";
 import SetProfile from "@/views/auth/SetProfile";
 import UserProfile from '@/views/user/UserProfile'
+import News from '@/views/News'
 import firebase from "firebase/app";
 
 Vue.use(Router);
@@ -19,6 +20,11 @@ const router = new Router({
       path: "/",
       name: "Home",
       component: Home
+    },
+    {
+      path: "/news",
+      name: "News",
+      component: News
     },
     {
       path: "/map",

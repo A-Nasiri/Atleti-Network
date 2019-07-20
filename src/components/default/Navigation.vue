@@ -21,7 +21,7 @@
           <v-icon left color="indigo">mdi-earth</v-icon>
           <span>ATLETI-MAP</span>
         </v-btn>
-        <v-btn flat class="hidden-xs-only">
+        <v-btn flat router :to="{ name: 'News' }" class="hidden-xs-only">
           <v-icon left color="indigo">mdi-newspaper</v-icon>
           <span>News</span>
         </v-btn>

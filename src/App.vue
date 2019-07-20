@@ -1,5 +1,5 @@
 <template>
-  <v-app class="black">
+  <v-app style="background-image: linear-gradient(to top, #09203f 0%, #537895 100%);">
     <Navigation />
     <v-content>
       <vue-page-transition name="overlay-up-down">
@@ -24,4 +24,7 @@ export default {
 </script>
 
 <style>
+.app-bg {
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
 </style>

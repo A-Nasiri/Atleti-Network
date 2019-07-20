@@ -1,5 +1,5 @@
 <template>
-  <v-card color="blue-grey darken-2" dark class="elevation-12">
+  <v-card style="background: rgba(0, 0, 0, 0.5)" dark class="elevation-12">
     <v-toolbar justify-center align-center color="teal darken-1">
       <v-spacer></v-spacer>
       <v-toolbar-title class="white--text">Setup Profile</v-toolbar-title>

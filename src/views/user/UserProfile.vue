@@ -5,7 +5,13 @@
     </v-btn>
     <v-layout column>
       <v-flex xs12>
-        <v-card v-if="profile" min-width="50%" dark class="pa-3 blue-grey">
+        <v-card
+          v-if="profile"
+          min-width="50%"
+          dark
+          class="pa-3 indigo"
+          style="background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);"
+        >
           <v-layout justify-center align-center column>
             <v-avatar size="110">
               <v-img :src="profile.image_url"></v-img>
@@ -38,7 +44,7 @@
         </v-card>
       </v-flex>
       <v-flex xs12 class="white pa-2">
-        <form>
+        <form @submit.prevent="addComment">
           <v-textarea solo label="Comment" v-model="newComment"></v-textarea>
           <v-btn color="teal darken-1" block dark @click.prevent="addComment">Add Comment</v-btn>
         </form>
