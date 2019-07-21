@@ -85,7 +85,7 @@
             <v-list-tile-title>LOG IN</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile>
+        <v-list-tile @click="goNews">
           <v-list-tile-action>
             <v-icon>mdi-newspaper</v-icon>
           </v-list-tile-action>
@@ -176,6 +176,9 @@ export default {
     },
     goMap() {
       this.$router.push({ name: "Gmap" });
+    },
+    goNews() {
+      this.$router.push({ name: "News" });
     }
   }
 };

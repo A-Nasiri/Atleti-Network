@@ -1,7 +1,16 @@
 <template>
   <div>
     <v-container>
-      <div class="white--text display-3 text-xs-center">NEWS</div>
+      <div class="white--text display-3 text-xs-center mb-3">NEWS</div>
+      <div class="text-xs-center">
+        <v-btn fab small dark color="cyan" :disabled="disabled" @click.prevent="prev()">
+          <v-icon dark>mdi-chevron-left</v-icon>
+        </v-btn>
+        <v-btn outline fab class="title" color="white">{{ this.currentPage }}</v-btn>
+        <v-btn fab small dark color="cyan" @click.prevent="next()">
+          <v-icon dark>mdi-chevron-right</v-icon>
+        </v-btn>
+      </div>
       <v-layout justify-center align-center class="my-4" row wrap>
         <v-flex xs12 sm6 md4 lg4 v-for="(article, index) in articles" :key="index">
           <v-card
@@ -27,12 +36,21 @@
                 </v-btn>
               </div>
               <v-layout align-center justify-end>
-                <span class="subheading">{{ article.publishedAt }}</span>
+                <span class="subheading">{{ article.publishedAt | trimDate }}</span>
               </v-layout>
             </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
+      <div class="text-xs-center">
+        <v-btn fab small dark color="cyan" :disabled="disabled" @click.prevent="prev()">
+          <v-icon dark>mdi-chevron-left</v-icon>
+        </v-btn>
+        <v-btn outline fab class="title" color="white">{{ this.currentPage }}</v-btn>
+        <v-btn fab small dark color="cyan" @click.prevent="next()">
+          <v-icon dark>mdi-chevron-right</v-icon>
+        </v-btn>
+      </div>
     </v-container>
     <main-footer></main-footer>
   </div>
@@ -46,17 +64,27 @@ export default {
   name: "News",
   data() {
     return {
-      apiUrl: `https://newsapi.org/v2/everything?q=atletico-madrid&language=en&pageSize=9&page=${this.currentPage}&apiKey=5b68f93fd6f1468a8f4aa3d63cf050b2`,
       totalResults: null,
       maxPerPage: 9,
       currentPage: 1,
-      maxPerPage: 9,
       articles: []
     };
   },
   computed: {
     pageCount() {
       return Math.ceil(this.totalResults / this.maxPerPage);
+    },
+    isFirstPage() {
+      return this.currentPage === 1;
+    },
+    isLastPage() {
+      return this.currentPage >= this.pageCount;
+    },
+    apiUrl() {
+      return `https://newsapi.org/v2/everything?q=atletico-madrid&language=en&page=${this.currentPage}&pageSize=${this.maxPerPage}&apiKey=5b68f93fd6f1468a8f4aa3d63cf050b2`;
+    },
+    disabled() {
+      return this.currentPage <= 1;
     }
   },
   created() {
@@ -69,10 +97,21 @@ export default {
         .then(res => {
           this.articles = res.data.articles;
           this.totalResults = res.data.totalResults;
+          console.log(res.data);
         })
         .catch(err => {
           console.log(err);
         });
+    },
+    next() {
+      if (this.isLastPage) return;
+      this.currentPage += 1;
+      this.fetchNews();
+    },
+    prev() {
+      if (this.isFirstPage) return;
+      this.currentPage -= 1;
+      this.fetchNews();
     },
     read(url) {
       window.open(url);

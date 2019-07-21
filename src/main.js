@@ -19,6 +19,14 @@ Vue.filter("snippet", val => {
   }
 });
 
+Vue.filter("trimDate", val => {
+  if (!val || typeof val != "string") return "";
+  if (val.length > 11) {
+    val = val.slice(0, 10);
+    return val;
+  }
+});
+
 Vue.config.productionTip = false;
 
 let app = null;

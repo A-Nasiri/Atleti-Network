@@ -26,14 +26,14 @@
             color="cyan darken-3"
             class="rounded-card card-bg elevation-10 ma-3 white--text text-xs-center text-sm-center text-md-center text-lg-center text-xl-center"
           >
-            <v-img :src="require('@/assets/fans.jpg')" height="200px"></v-img>
+            <v-img :src="require('@/assets/fans.jpg')" height="240px"></v-img>
             <v-card-title primary-title>
               <div
                 class="font-weight-medium headline pa-2"
               >Engage with fellow Atleti fans from all over the world</div>
             </v-card-title>
             <v-card-actions>
-              <v-btn block dark large class="btn-bg">Join Now</v-btn>
+              <v-btn block dark large class="btn-bg" router :to="{ name: 'Register' }">Join Now</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -43,14 +43,14 @@
             color="cyan darken-3"
             class="rounded-card card-bg elevation-10 ma-3 white--text text-xs-center text-sm-center text-md-center text-lg-center text-xl-center"
           >
-            <v-img :src="require('@/assets/diego.jpg')" height="200px"></v-img>
+            <v-img :src="require('@/assets/diego.jpg')" height="240px"></v-img>
             <v-card-title primary-title>
               <div
                 class="font-weight-medium headline pa-2"
               >Stay at the fore-front of Los Colchoneros action</div>
             </v-card-title>
             <v-card-actions>
-              <v-btn block dark large class="btn-bg">NEWS</v-btn>
+              <v-btn block dark large class="btn-bg" router :to="{ name: 'News' }">NEWS</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -59,14 +59,14 @@
             max-width="450px"
             class="rounded-card card-bg elevation-10 ma-3 white--text text-xs-center text-sm-center text-md-center text-lg-center text-xl-center"
           >
-            <v-img :src="require('@/assets/simeone.jpg')" height="200px"></v-img>
+            <v-img :src="require('@/assets/simeone.jpg')" height="240px"></v-img>
             <v-card-title primary-title>
               <div
                 class="font-weight-medium headline pa-2"
               >Contribute to the most amazing club on the planet</div>
             </v-card-title>
             <v-card-actions>
-              <v-btn block dark large class="btn-bg">LOG IN</v-btn>
+              <v-btn block dark large class="btn-bg" router :to="{ name: 'Login' }">LOG IN</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
