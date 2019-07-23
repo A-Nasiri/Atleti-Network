@@ -6,7 +6,7 @@
         <v-btn fab small dark color="cyan" :disabled="disabled" @click.prevent="prev()">
           <v-icon dark>mdi-chevron-left</v-icon>
         </v-btn>
-        <v-btn outline fab class="title" color="white">{{ this.currentPage }}</v-btn>
+        <v-btn outline fab small class="title" color="white">{{ this.currentPage }}</v-btn>
         <v-btn fab small dark color="cyan" @click.prevent="next()">
           <v-icon dark>mdi-chevron-right</v-icon>
         </v-btn>
@@ -46,7 +46,7 @@
         <v-btn fab small dark color="cyan" :disabled="disabled" @click.prevent="prev()">
           <v-icon dark>mdi-chevron-left</v-icon>
         </v-btn>
-        <v-btn outline fab class="title" color="white">{{ this.currentPage }}</v-btn>
+        <v-btn outline fab small class="title" color="white">{{ this.currentPage }}</v-btn>
         <v-btn fab small dark color="cyan" @click.prevent="next()">
           <v-icon dark>mdi-chevron-right</v-icon>
         </v-btn>
@@ -81,7 +81,7 @@ export default {
       return this.currentPage >= this.pageCount;
     },
     apiUrl() {
-      return `https://newsapi.org/v2/everything?q=atletico-madrid&language=en&page=${this.currentPage}&pageSize=${this.maxPerPage}&apiKey=5b68f93fd6f1468a8f4aa3d63cf050b2`;
+      return `https://newsapi.org/v2/everything?q=atletico-madrid&language=en&sortBy=publishedAt&page=${this.currentPage}&pageSize=${this.maxPerPage}&apiKey=5b68f93fd6f1468a8f4aa3d63cf050b2`;
     },
     disabled() {
       return this.currentPage <= 1;

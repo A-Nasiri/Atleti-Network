@@ -28,14 +28,20 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn block color="teal darken-1" large @click="uploadFile">
-        UPLOAD IMAGE
-        <v-icon right dark>cloud_upload</v-icon>
-      </v-btn>
-      <v-btn block color="teal darken-1" large @click="skip">
-        SKIP FOR NOW
-        <v-icon right dark>mdi-exit-to-app</v-icon>
-      </v-btn>
+      <v-layout wrap>
+        <v-flex class="ma-2">
+          <v-btn block color="teal darken-1" large @click="uploadFile">
+            UPLOAD IMAGE
+            <v-icon right dark>cloud_upload</v-icon>
+          </v-btn>
+        </v-flex>
+        <v-flex class="ma-2">
+          <v-btn block color="teal darken-1" large @click="skip">
+            SKIP FOR NOW
+            <v-icon right dark>mdi-exit-to-app</v-icon>
+          </v-btn>
+        </v-flex>
+      </v-layout>
     </v-card-actions>
   </v-card>
 </template>

@@ -1,8 +1,5 @@
 <template>
   <v-container>
-    <v-btn fixed dark left color="teal" style="z-index: 999" @click="back">
-      <v-icon>mdi-arrow-left</v-icon>
-    </v-btn>
     <v-layout column>
       <v-flex xs12>
         <v-card
@@ -12,9 +9,12 @@
           class="pa-3 indigo"
           style="background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);"
         >
+          <v-btn fixed dark absolute color="teal" @click="back">
+            <v-icon>mdi-arrow-left</v-icon>
+          </v-btn>
           <v-layout justify-center align-center column>
             <v-avatar size="110">
-              <v-img :src="profile.image_url"></v-img>
+              <v-img v-if="profile.image_url" :src="profile.image_url"></v-img>
             </v-avatar>
             <v-card-title class="display-1">{{ profile.username }}</v-card-title>
           </v-layout>

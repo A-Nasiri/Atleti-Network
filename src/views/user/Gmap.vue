@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="map">
-      <div class="google-map" id="map">map</div>
+      <div class="google-map" id="map"></div>
     </div>
     <v-dialog v-model="dialog" max-width="350">
       <v-card class="pa-3">
@@ -31,8 +31,8 @@ export default {
   name: "Gmap",
   data() {
     return {
-      lat: 53,
-      lng: -2,
+      lat: 40.436111,
+      lng: -3.599444,
       marker: require("@/assets/marker.png"),
       dialog: false,
       user: null,
@@ -114,13 +114,23 @@ export default {
           });
         });
     },
-    visitProfile(e) {
-      let par = e.path[3].children[1].children[1].innerText;
-      let slug = slugify(par, {
+    initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: this.lat, lng: this.lng },
+        zoom: 6,
+        maxZoom: 15,
+        minZoom: 3,
+        streetViewControl: false
+      });
+    },
+    visitProfile() {
+      let user = this.user;
+      let slug = slugify(user, {
         replacement: "-",
         remove: /[$*_+.()'"!\-:@]/g,
         lower: true
       });
+
       this.$router.push({ name: "UserProfile", params: { id: slug } });
     }
   }

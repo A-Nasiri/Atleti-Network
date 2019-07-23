@@ -103,7 +103,7 @@
             <v-list-tile-title>ATLETI-MAP</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile v-if="user" @click="goMap">
+        <v-list-tile v-if="user" @click="goProfile">
           <v-list-tile-action>
             <v-icon>mdi-wall</v-icon>
           </v-list-tile-action>
@@ -129,6 +129,7 @@
 <script>
 import firebase from "firebase/app";
 import db from "@/firebase/init";
+import slugify from "slugify";
 
 export default {
   name: "Navigation",
@@ -179,6 +180,17 @@ export default {
     },
     goNews() {
       this.$router.push({ name: "News" });
+    },
+    goProfile() {
+      if (this.userProfile) {
+        let user = this.userProfile.username;
+        let slug = slugify(user, {
+          replacement: "-",
+          remove: /[$*_+.()'"!\-:@]/g,
+          lower: true
+        });
+        this.$router.push({ name: "UserProfile", params: { id: slug } });
+      }
     }
   }
 };
