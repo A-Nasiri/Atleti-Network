@@ -41,6 +41,7 @@ export default {
   },
   mounted() {
     let user = firebase.auth().currentUser;
+    this.initMap();
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -70,7 +71,11 @@ export default {
           this.renderMap();
         },
         err => {
-          consle.log(err);
+          if (err.code === 1) {
+            alert(
+              "If you wish to appear on Atleti Map, make sure to enable your location services!"
+            );
+          }
           this.renderMap();
         },
         { maximumAge: 60000, timeout: 5000 }
