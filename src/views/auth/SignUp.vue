@@ -1,5 +1,6 @@
 <template>
   <div>
+    <last-result></last-result>
     <v-parallax class="sign-up" :src="require('@/assets/reg.jpg')">
       <v-container fill-height>
         <v-layout row wrap align-center>

@@ -33,14 +33,14 @@
           <v-icon left color="indigo">mdi-login</v-icon>
           <span>Login</span>
         </v-btn>
-        <v-btn v-if="user" flat @click="logOut" class="hidden-xs-only">
+        <v-btn v-if="user" flat @click="logOut" class="hidden-sm-and-down">
           <v-icon left color="indigo">mdi-logout</v-icon>
           <span>Logout</span>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
-    <v-navigation-drawer v-model="drawer" app dark class="indigo">
+    <v-navigation-drawer v-model="drawer" app dark class="blue-grey darken-3">
       <v-list>
         <v-layout
           v-if="user"
@@ -213,6 +213,10 @@ export default {
 
 .logo .net {
   width: 107px;
+}
+
+.sideNav {
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
 }
 
 .draw {

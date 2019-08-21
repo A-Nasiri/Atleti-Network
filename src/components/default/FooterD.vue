@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer dark id="ftrr" class="py-4" justify-center align-center height="auto">
+    <v-footer dark id="ftrr" class="py-4" justify-center align-center height="400">
       <v-container>
         <v-layout wrap>
           <v-flex xs12>

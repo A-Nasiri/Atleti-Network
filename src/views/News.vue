@@ -1,5 +1,6 @@
 <template>
   <div>
+    <last-result></last-result>
     <v-container>
       <div class="white--text display-3 text-xs-center mb-3">NEWS</div>
       <div class="text-xs-center">
@@ -11,8 +12,8 @@
           <v-icon dark>mdi-chevron-right</v-icon>
         </v-btn>
       </div>
-      <v-layout justify-center align-center class="my-4" row wrap>
-        <v-flex xs12 sm6 md4 lg4 v-for="(article, index) in articles" :key="index">
+      <v-layout justify-center align-center fill-height class="my-4" row wrap>
+        <v-flex xs12 sm6 md4 lg4 xl3 v-for="(article, index) in articles" :key="index">
           <v-card
             min-height="450px"
             max-width="450px"
@@ -97,7 +98,6 @@ export default {
         .then(res => {
           this.articles = res.data.articles;
           this.totalResults = res.data.totalResults;
-          console.log(res.data);
         })
         .catch(err => {
           console.log(err);

@@ -4,9 +4,13 @@ import App from "./App.vue";
 import router from "./router";
 import firebase from "firebase/app";
 import FooterD from "@/components/default/FooterD";
+import LeagueTable from "@/components/LeagueTable";
+import LastResult from "@/components/LastResult";
 import VuePageTransition from "vue-page-transition";
 
 Vue.component("main-footer", FooterD);
+Vue.component("last-result", LastResult);
+Vue.component("league-table", LeagueTable);
 Vue.use(VuePageTransition);
 
 Vue.filter("snippet", val => {

@@ -71,7 +71,7 @@ export default {
           this.renderMap();
         },
         err => {
-          if (err.code === 1) {
+          if (err.code === 1 || err.code === 2) {
             alert(
               "If you wish to appear on Atleti Map, make sure to enable your location services!"
             );

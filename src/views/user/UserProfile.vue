@@ -1,56 +1,59 @@
 <template>
-  <v-container>
-    <v-layout column>
-      <v-flex xs12>
-        <v-card
-          v-if="profile"
-          min-width="50%"
-          dark
-          class="pa-3 indigo"
-          style="background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);"
-        >
-          <v-btn fixed dark absolute color="teal" @click="back">
-            <v-icon>mdi-arrow-left</v-icon>
-          </v-btn>
-          <v-layout justify-center align-center column>
-            <v-avatar size="110">
-              <v-img v-if="profile.image_url" :src="profile.image_url"></v-img>
-            </v-avatar>
-            <v-card-title class="display-1">{{ profile.username }}</v-card-title>
-          </v-layout>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 class="scroll-y" style="max-height: 500px">
-        <v-card
-          v-for="(comment, index) in comments"
-          :key="index"
-          dark
-          class="pa-3 my-1 cyan darken-1"
-        >
-          <v-card-text class="subheading font-weight-medium">{{ comment.comment }}</v-card-text>
-          <v-card-actions>
-            <v-list-tile class="grow">
-              <v-list-tile-avatar color="grey darken-3">
-                <v-img class="elevation-6" :src="comment.avatar"></v-img>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ comment.from }}</v-list-tile-title>
-              </v-list-tile-content>
-              <v-layout align-center justify-end>
-                <span class="subheading">{{ comment.time }}</span>
-              </v-layout>
-            </v-list-tile>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 class="white pa-2">
-        <form @submit.prevent="addComment">
-          <v-textarea solo label="Comment" v-model="newComment"></v-textarea>
-          <v-btn color="teal darken-1" block dark @click.prevent="addComment">Add Comment</v-btn>
-        </form>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+    <last-result></last-result>
+    <v-container>
+      <v-layout column>
+        <v-flex xs12>
+          <v-card
+            v-if="profile"
+            min-width="50%"
+            dark
+            class="pa-3 indigo"
+            style="background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);"
+          >
+            <v-btn fixed dark absolute color="teal" @click="back">
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
+            <v-layout justify-center align-center column>
+              <v-avatar size="110">
+                <v-img v-if="profile.image_url" :src="profile.image_url"></v-img>
+              </v-avatar>
+              <v-card-title class="display-1">{{ profile.username }}</v-card-title>
+            </v-layout>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 class="scroll-y" style="max-height: 500px">
+          <v-card
+            v-for="(comment, index) in comments"
+            :key="index"
+            dark
+            class="pa-3 my-1 cyan darken-1"
+          >
+            <v-card-text class="subheading font-weight-medium">{{ comment.comment }}</v-card-text>
+            <v-card-actions>
+              <v-list-tile class="grow">
+                <v-list-tile-avatar color="grey darken-3">
+                  <v-img class="elevation-6" :src="comment.avatar"></v-img>
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ comment.from }}</v-list-tile-title>
+                </v-list-tile-content>
+                <v-layout align-center justify-end>
+                  <span class="subheading">{{ comment.time }}</span>
+                </v-layout>
+              </v-list-tile>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 class="white pa-2">
+          <form @submit.prevent="addComment">
+            <v-textarea solo label="Comment" v-model="newComment"></v-textarea>
+            <v-btn color="teal darken-1" block dark @click.prevent="addComment">Add Comment</v-btn>
+          </form>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </div>
 </template>
 
 <script>
